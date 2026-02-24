@@ -1,1 +1,34 @@
 Esercizi di programazione in Python
+dopo il dollaro non si codifica, si codifica dopo le tre freccette
+per dividere con interi scrivere doppia barra
+con il doppio asterisco si eleva
+con spazi in mezzo all'equazione non cambia, ma all' inizio non va messo oppure ottengo un errore si sintassi
+dividere per zero da un runtime errors o un eccezzione
+l'errore di semantica e' per esempio il latte di pierino
+
+ci sono 5 operazioni che posso far fare ad un programma:
+    1. INPUT
+    2. CALCOLO
+    3. CONTROLLO CONDIZIONE
+    4. RIPETIZIONE
+    5. OUTPUT
+
+quando vado a capo finisco uno statement (=assegnazione) gli statement non producono risultato
+non scrivere piu statement sulla stessa riga
+alle keyword non si possono assegnare valori
+per l'assegmazione i left value o right value coincidono rispettivamente con variabile e valore
+int=intero
+str=stringa (un insieme di caratteri)
+float=valore reale
+
+type identifica l'oggetto
+doppio uguale significa verifica l'uguaglianza
+non posso assegnare nome a un valore
+per trovare il valore della variabile scrivere print
+len e' la lunghezza di caratteri nella stringa
+
+CI SONO DUE COMANDI IN PYthON statement e espressioni
+se voglio verificare che una variabile e' uguale a None scrivo is non uguale
+con + tra le stringhe si attaccano le stringhe e con * si ripetono
+per cambiare il type di una variabile si usa float() per cambiarlo a num reale, str per trasformarlo in stringa e int per trasformarlo in intero
+scrivere exit per spegnere
