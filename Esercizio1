@@ -1,22 +1,19 @@
 
-
 def is_pari(n):
     """Ritorna vero se "n" è pari, se no ritorna falso """
     risultato = True
-    
     if n%2 == 1:
        risultato = False
-
     return risultato
 
-######
-main():
-    numero = int( input('Dammi un numero: ') )
+def genera_numeri():       '''Chiede un numero intero positivo'''
+    numero=int(input('Dammi un numero intero positivo:  '))
+    if numero > 0:
+        risultato=is_pari(numero)
+        return risultato
+    else:
+        risultato=genera_numeri()
+        return risultato
 
-    print(type(numero))
-
-    result = is_pari(numero)
-
-    print(result)
-
-main()
+result = genera_numeri()
+print(result)
