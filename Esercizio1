@@ -1,4 +1,5 @@
 
+
 def is_pari(n):
     """Ritorna vero se "n" è pari, se no ritorna falso """
     risultato = True
@@ -6,14 +7,34 @@ def is_pari(n):
        risultato = False
     return risultato
 
-def genera_numeri():       '''Chiede un numero intero positivo'''
+def chiedi_numero():
+    numero=int(input('Dammi un numero intero positivo:  '))
+    return numero
+    
+def genera_numeri():       
+    """Chiede un numero intero positivo"""
     numero=int(input('Dammi un numero intero positivo:  '))
     if numero > 0:
         risultato=is_pari(numero)
-        return risultato
+        return risultato, numero
     else:
         risultato=genera_numeri()
         return risultato
 
-result = genera_numeri()
+result, numero = genera_numeri()
 print(result)
+
+def crea_lista(n, lista):
+    lista.append(n)
+    if n==1 or len(lista)==100:
+        return lista
+    else:
+        if is_pari(n)==True:
+            n=n//2
+            return crea_lista(n, lista)
+        else:
+            n=(n*3)+1
+            return crea_lista(n, lista)
+
+lista_finale = crea_lista(numero, [])
+print(lista_finale)
