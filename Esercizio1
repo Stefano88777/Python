@@ -1,5 +1,4 @@
 
-
 def is_pari(n):
     """Ritorna vero se "n" è pari, se no ritorna falso """
     risultato = True
@@ -38,3 +37,27 @@ def crea_lista(n, lista):
 
 lista_finale = crea_lista(numero, [])
 print(lista_finale)
+
+def analizza_sequenza(n):
+    massimo=max(n)
+    somma=sum(n)
+    lunghezza=len(n)
+    return massimo, somma, lunghezza
+
+massimo, somma, lunghezza=analizza_sequenza(lista_finale)
+print('Il valore massimo della lista è:', massimo)
+print('La somma dei valori nella lista è:' , somma)
+print('La sua lunghezza è:' , lunghezza)
+
+def ricerca_lista(n):
+    multipli=[]
+    for x in n:
+        if x%5 == 0:
+            multipli.append(x)
+    if multipli==[]:
+        return 'Non ci sono multipli di 5'
+    else:
+        return multipli
+
+ricerca=ricerca_lista(lista_finale)
+print ('I multipli di 5 sono', ricerca)
