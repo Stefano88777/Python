@@ -1,27 +1,16 @@
 
 def is_pari(n):
-    """Ritorna vero se "n" è pari, se no ritorna falso """
     risultato = True
     if n%2 == 1:
        risultato = False
     return risultato
 
-def chiedi_numero():
-    numero=int(input('Dammi un numero intero positivo:  '))
-    return numero
-    
 def genera_numeri():       
-    """Chiede un numero intero positivo"""
-    numero=int(input('Dammi un numero intero positivo:  '))
+    numero=int(input('\nDammi un numero intero positivo:  '))
     if numero > 0:
-        risultato=is_pari(numero)
-        return risultato, numero
+        return is_pari(numero), numero
     else:
-        risultato=genera_numeri()
-        return risultato
-
-result, numero = genera_numeri()
-print(result)
+        return genera_numeri()
 
 def crea_lista(n, lista):
     lista.append(n)
@@ -35,19 +24,11 @@ def crea_lista(n, lista):
             n=(n*3)+1
             return crea_lista(n, lista)
 
-lista_finale = crea_lista(numero, [])
-print(lista_finale)
-
 def analizza_sequenza(n):
     massimo=max(n)
     somma=sum(n)
     lunghezza=len(n)
     return massimo, somma, lunghezza
-
-massimo, somma, lunghezza=analizza_sequenza(lista_finale)
-print('Il valore massimo della lista è:', massimo)
-print('La somma dei valori nella lista è:' , somma)
-print('La sua lunghezza è:' , lunghezza)
 
 def ricerca_lista(n):
     multipli=[]
@@ -57,7 +38,29 @@ def ricerca_lista(n):
     if multipli==[]:
         return 'Non ci sono multipli di 5'
     else:
-        return multipli
+        numeri='I multipli di 5 sono: ' + str(multipli)
+        return numeri
 
-ricerca=ricerca_lista(lista_finale)
-print ('I multipli di 5 sono', ricerca)
+def main():
+    result, numero = genera_numeri()
+    print(result)
+    lista_finale = crea_lista(numero, [])
+    print(lista_finale)
+    massimo, somma, lunghezza = analizza_sequenza(lista_finale)
+    print('Il valore massimo della lista è:', massimo)
+    print('La somma dei valori nella lista è:' , somma)
+    print('La sua lunghezza è:' , lunghezza)
+    ricerca=ricerca_lista(lista_finale)
+    print (ricerca)
+    return numero, lunghezza
+x=int(input('Quanti numeri volete analizzare: '))
+for i in range(x):
+    numero, lunghezza = main()
+    lunghezza_base = 0
+    miglior_numero = None
+    if lunghezza > lunghezza_base:
+        lunghezza_base=lunghezza
+        miglior_numero=numero
+print('\nRIEPILOGO FINALE:')
+print('Il numero con la sequenza più lunga è: ' , miglior_numero)
+print('La sua lunghezza è: ' , lunghezza_base)
