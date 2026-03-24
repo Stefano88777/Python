@@ -1,0 +1,57 @@
+testo = '''
+Day after day, day after day,
+We stuck, nor breath nor motion;
+As idle as a painted ship
+Upon a painted ocean.
+
+Water, water, every where,
+And all the boards did shrink;
+Water, water, every where,
+Nor any drop to drink.
+
+The very deep did rot: O Christ!
+That ever this should be!
+Yea, slimy things did crawl with legs
+Upon the slimy sea.
+
+About, about, in reel and rout
+The death-fires danced at night;
+The water, like a witch's oils,
+Burnt green, and blue and white.
+'''
+
+#Punto 1
+lista_righe = testo.split('\n')
+conta_righe = 0
+for riga in lista_righe:
+    if len(riga) > 0:
+        conta_righe = conta_righe + 1
+print(conta_righe)
+
+#Punto 2
+conta_parole = 0
+lista_parole = testo.split()
+for parola in lista_parole:
+    conta_parole=conta_parole + 1
+print(conta_parole)
+
+#Punto 3
+# conta_caratteri_an = 0
+# lista_del_testo = list (testo)
+# lista_del_testo.remove('\n')
+# for carattere in lista_del_testo:
+    # if isalnum(carattere) == True:
+        # conta_caratteri_an = conta_caratteri_an + 1
+# print(conta_caratteri_an)
+
+# Punto 8
+testo_diviso=testo.split('\n')
+testo_diviso=testo_diviso.remove('')
+seconda_riga=testo_diviso[1]
+seconda_riga=list(seconda_riga)
+frase_girata=[]
+for carattere in seconda_riga:
+    frase_girata.
+
+
+
