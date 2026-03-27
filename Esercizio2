@@ -1,3 +1,4 @@
+
 testo = '''
 Day after day, day after day,
 We stuck, nor breath nor motion;
@@ -26,32 +27,60 @@ conta_righe = 0
 for riga in lista_righe:
     if len(riga) > 0:
         conta_righe = conta_righe + 1
-print(conta_righe)
+print('Il numero di righe è: ', conta_righe)
+print(lista_righe)
 
 #Punto 2
 conta_parole = 0
 lista_parole = testo.split()
 for parola in lista_parole:
     conta_parole=conta_parole + 1
-print(conta_parole)
+print('Il numero di parole è: ', conta_parole)
+#print(lista_parole)
 
 #Punto 3
-# conta_caratteri_an = 0
-# lista_del_testo = list (testo)
-# lista_del_testo.remove('\n')
-# for carattere in lista_del_testo:
-    # if isalnum(carattere) == True:
-        # conta_caratteri_an = conta_caratteri_an + 1
-# print(conta_caratteri_an)
+conta_caratteri_an = 0
+lista_del_testo = list (testo)
+for i in lista_del_testo:
+    if i.isalnum():
+        conta_caratteri_an = conta_caratteri_an + 1
+print('Il numero di caratteri alfanumerici è: ', conta_caratteri_an)
 
+#Punto 4
+#lettera=input('Dammi una lettera qualsiasi: ')
+#conta_lettera=0
+#for i in lista_del_testo:
+#    if i == lettera:
+#        conta_lettera = conta_lettera + 1
+#print('La lettera ', lettera, ' compare ', conta_lettera, ' volte in questo testo')
+
+#Punto 5
+for x in lista_righe:
+    lista_parole = x.split(' ')
+    #print(lista_parole)
+    for i in lista_parole:
+        
+#for i in lista_parole:
+    
+#    parola = i.lower().strip(",.;:!")
+#    if parola == 'water' or parola == 'day' or parola == 'about':
+#        indice = lista_parole.index(i)
+#        lista_parole.remove(i)
+#        lista_parole.insert(indice, 'PYTHON')
+#print(lista_parole)
+
+#print(lista_parole)
+
+#print(lista_del_testo)
 # Punto 8
-testo_diviso=testo.split('\n')
-testo_diviso=testo_diviso.remove('')
-seconda_riga=testo_diviso[1]
-seconda_riga=list(seconda_riga)
-frase_girata=[]
-for carattere in seconda_riga:
-    frase_girata.
+#testo_diviso=testo.split('\n')
+#testo_diviso=testo_diviso.remove('')
+#seconda_riga=testo_diviso[1]
+#seconda_riga=list(seconda_riga)
+#frase_girata=[]
+#for carattere in seconda_riga:
+#    frase_girata.
+
 
 
 
