@@ -55,21 +55,23 @@ print('Il numero di caratteri alfanumerici è: ', conta_caratteri_an)
 #print('La lettera ', lettera, ' compare ', conta_lettera, ' volte in questo testo')
 
 #Punto 5
-for x in lista_righe:
-    lista_parole = x.split(' ')
-    #print(lista_parole)
-    for i in lista_parole:
-        
-#for i in lista_parole:
-    
-#    parola = i.lower().strip(",.;:!")
-#    if parola == 'water' or parola == 'day' or parola == 'about':
-#        indice = lista_parole.index(i)
-#        lista_parole.remove(i)
-#        lista_parole.insert(indice, 'PYTHON')
-#print(lista_parole)
-
-#print(lista_parole)
+def testo_con_python():
+    risultato = []
+    for x in lista_righe:
+        lista_parole = x.split(' ')
+        for indice in range(len(lista_parole)):
+            i = lista_parole[indice]
+            parola = i.lower()
+            parola_sz_punt = parola.strip(",.;:!")
+            if parola == 'water' or parola == 'day' or parola == 'about':
+                lista_parole[indice] = 'PYTHON'
+            elif parola_sz_punt == 'water' or parola_sz_punt == 'day' or parola_sz_punt == 'about':
+                punteggiatura = i[-1]
+                lista_parole[indice] = 'PYTHON' + punteggiatura
+        risultato.append(" ".join(lista_parole))
+    return risultato
+testo_finale = "\n".join(testo_con_python())
+#print(testo_finale)
 
 #print(lista_del_testo)
 # Punto 8
