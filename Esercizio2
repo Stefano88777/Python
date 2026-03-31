@@ -55,23 +55,29 @@ print('Il numero di caratteri alfanumerici è: ', conta_caratteri_an)
 #print('La lettera ', lettera, ' compare ', conta_lettera, ' volte in questo testo')
 
 #Punto 5
-def testo_con_python():
-    risultato = []
-    for x in lista_righe:
-        lista_parole = x.split(' ')
-        for indice in range(len(lista_parole)):
-            i = lista_parole[indice]
-            parola = i.lower()
-            parola_sz_punt = parola.strip(",.;:!")
-            if parola == 'water' or parola == 'day' or parola == 'about':
-                lista_parole[indice] = 'PYTHON'
-            elif parola_sz_punt == 'water' or parola_sz_punt == 'day' or parola_sz_punt == 'about':
-                punteggiatura = i[-1]
-                lista_parole[indice] = 'PYTHON' + punteggiatura
-        risultato.append(" ".join(lista_parole))
-    return risultato
-testo_finale = "\n".join(testo_con_python())
-#print(testo_finale)
+#print('Sostituendo la parola Python, il testo diventa: ')
+for x in lista_righe:
+    lista_testo_es5 = x.split(' ')
+    for indice in range(len(lista_testo_es5)):
+        i = lista_testo_es5[indice]
+        parola = i.lower()
+        parola_sz_punt = parola.strip(",.;:!")
+        if parola == 'water' or parola == 'day' or parola == 'about':
+            lista_testo_es5[indice] = 'PYTHON'
+        elif parola_sz_punt == 'water' or parola_sz_punt == 'day' or parola_sz_punt == 'about':
+            punteggiatura = i[-1]
+            lista_testo_es5[indice] = 'PYTHON' + punteggiatura
+#    print(" ".join(lista_testo_es5))
+
+#Punto 6
+#print('Mettendo in maiuscolo ogni parola dispari, il testo diventa: ')
+for x in lista_righe:
+    lista_testo_es6 = x.split(' ')
+    for indice in range(len(lista_testo_es6)):
+        i = lista_testo_es6[indice]
+        if (indice + 1)%2 == 1:
+            lista_testo_es6[indice] = i.upper()
+#    print(" ".join(lista_testo_es6))
 
 #print(lista_del_testo)
 # Punto 8
