@@ -110,5 +110,26 @@ while x < len(testo_diviso):
 #print("\n".join(testo_completo_girato))
 
 #Punto 9
-
-
+prima_strofa = []
+seconda_strofa = []
+terza_strofa = []
+quarta_strofa = []
+y = 0
+for i in lista_righe:
+    if i != ' ':
+        if y <= 4:
+            prima_strofa.append(lista_righe[y])
+            y = y + 1
+        if y > 4 and y <= 9:
+            seconda_strofa.append(lista_righe[y])
+            y = y + 1
+        if y > 9 and y <= 14:
+            terza_strofa.append(lista_righe[y])
+            y = y + 1
+        if y > 14 and y <= 19:
+            quarta_strofa.append(lista_righe[y])
+            y = y + 1
+prima_strofa
+seconda_strofa
+terza_strofa
+quarta_strofa
