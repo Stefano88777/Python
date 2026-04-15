@@ -27,15 +27,15 @@ conta_righe = 0
 for riga in lista_righe:
     if len(riga) > 0:
         conta_righe = conta_righe + 1
-print('Il numero di righe è: ', conta_righe)
-print(lista_righe)
+#print('Il numero di righe è: ', conta_righe)
+#print(lista_righe)
 
 #Punto 2
 conta_parole = 0
 lista_parole = testo.split()
 for parola in lista_parole:
     conta_parole=conta_parole + 1
-print('Il numero di parole è: ', conta_parole)
+#print('Il numero di parole è: ', conta_parole)
 #print(lista_parole)
 
 #Punto 3
@@ -44,7 +44,7 @@ lista_del_testo = list (testo)
 for i in lista_del_testo:
     if i.isalnum():
         conta_caratteri_an = conta_caratteri_an + 1
-print('Il numero di caratteri alfanumerici è: ', conta_caratteri_an)
+#print('Il numero di caratteri alfanumerici è: ', conta_caratteri_an)
 
 #Punto 4
 #lettera=input('Dammi una lettera qualsiasi: ')
@@ -79,16 +79,36 @@ for x in lista_righe:
             lista_testo_es6[indice] = i.upper()
 #    print(" ".join(lista_testo_es6))
 
-#print(lista_del_testo)
-# Punto 8
-#testo_diviso=testo.split('\n')
-#testo_diviso=testo_diviso.remove('')
-#seconda_riga=testo_diviso[1]
-#seconda_riga=list(seconda_riga)
-#frase_girata=[]
-#for carattere in seconda_riga:
-#    frase_girata.
+#Punto 7
+#print("\nInvertendo l'ordine deli versi la poesia diventa: ")
+lista_al_contrario = []
+i = 0
+for x in lista_righe:
+    lista_al_contrario.append(lista_righe[-i])
+    i = i + 1 
+#print("\n".join(lista_al_contrario))
 
+#Punto 8
+#print("\nGirando ogni secondo verso il testo diventa: ")
+testo_diviso = testo.split('\n')
+x = 0
+testo_completo_girato = []
+while x < len(testo_diviso):
+    frase_girata=[]
+    if x % 5 == 2:
+        frase_divisa = testo_diviso[x]
+        frase_divisa.split()
+        s = 0
+        for t in frase_divisa:
+            frase_girata.append(frase_divisa[-(s+1)])
+            s = s + 1
+        x = x + 1
+        testo_completo_girato.append("".join(frase_girata))
+    else:
+        testo_completo_girato.append(testo_diviso[x])
+        x = x + 1
+#print("\n".join(testo_completo_girato))
 
+#Punto 9
 
 
