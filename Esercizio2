@@ -114,22 +114,97 @@ prima_strofa = []
 seconda_strofa = []
 terza_strofa = []
 quarta_strofa = []
-y = 0
-for i in lista_righe:
-    if i != ' ':
-        if y <= 4:
-            prima_strofa.append(lista_righe[y])
-            y = y + 1
-        if y > 4 and y <= 9:
-            seconda_strofa.append(lista_righe[y])
-            y = y + 1
-        if y > 9 and y <= 14:
-            terza_strofa.append(lista_righe[y])
-            y = y + 1
-        if y > 14 and y <= 19:
-            quarta_strofa.append(lista_righe[y])
-            y = y + 1
-prima_strofa
-seconda_strofa
-terza_strofa
-quarta_strofa
+
+for indice, i in enumerate(lista_righe):
+    if i != "":
+        if indice <= 4:
+            for t in i.split():
+                prima_strofa.append(t.lower().strip(",.;:!?"))
+
+        elif indice <= 9:
+            for t in i.split():
+                seconda_strofa.append(t.lower().strip(",.;:!?"))
+
+        elif indice <= 14:
+            for t in i.split():
+                terza_strofa.append(t.lower().strip(",.;:!?"))
+
+        elif indice <= 20:
+            for t in i.split():
+                quarta_strofa.append(t.lower().strip(",.;:!?"))
+
+
+parole_in_tutte_le_strofe = []
+for parola in prima_strofa:
+    verifica = 1
+    for i in seconda_strofa:
+        if i == parola:
+            verifica = verifica + 1
+            break
+    for i in terza_strofa:
+        if i == parola:
+            verifica = verifica + 1
+            break
+    for i in quarta_strofa:
+        if i == parola:
+            verifica = verifica + 1
+            break
+    if verifica == 4:
+        parole_in_tutte_le_strofe.append(parola)
+#print(prima_strofa)
+#print(seconda_strofa)
+#print(terza_strofa)
+#print(quarta_strofa)
+#print(parole_in_tutte_le_strofe)
+
+#Punto 10
+lista_ordinata = []
+for parola in prima_strofa:
+    if parola not in lista_ordinata:
+        lista_ordinata.append(parola)
+for parola in seconda_strofa:
+    if parola not in lista_ordinata:
+        lista_ordinata.append(parola)
+for parola in terza_strofa:
+    if parola not in lista_ordinata:
+        lista_ordinata.append(parola)
+for parola in quarta_strofa:
+    if parola not in lista_ordinata:
+        lista_ordinata.append(parola)
+lista_ordinata.sort(key=len)
+#print(lista_ordinata)
+
+#Punto 11
+lista_caratteri = list (testo)
+while "\n" in lista_caratteri:
+    lista_caratteri.remove("\n")
+while " " in lista_caratteri:
+    lista_caratteri.remove(" ")
+dizionario_1 = {}
+for i in lista_caratteri:
+    if i not in dizionario_1:
+        dizionario_1[i] = 1
+    else:
+        dizionario_1[i] += 1
+
+#print(dizionario_1)
+
+#Punto 12
+simboli = ".,?!:;'-"
+lista_caratteri_alnum = list (testo)
+while "\n" in lista_caratteri_alnum:
+    lista_caratteri_alnum.remove("\n")
+while " " in lista_caratteri_alnum:
+    lista_caratteri_alnum.remove(" ")
+for i in range(len(lista_caratteri_alnum)):
+    lista_caratteri_alnum[i] = lista_caratteri_alnum[i].lower()
+for i in simboli:
+    while i in lista_caratteri_alnum:
+        lista_caratteri_alnum.remove(i)
+dizionario_2 = {}
+for i in lista_caratteri_alnum:
+    if i not in dizionario_2:
+        dizionario_2[i] = 1
+    else:
+        dizionario_2[i] += 1
+print(dizionario_2)
