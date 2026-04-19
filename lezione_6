@@ -53,25 +53,25 @@ binary_file.close()
 
 ###Proviamo i json file
 
-import json
+#import json
 
-data = {
-  "Paolino Paperino": {
-      "giorno": 9,
-      "mese": "giugno",
-      "anno": 1934,
-      "età": 89,
-      "sesso": "M",
-      "mail": "paolino.paperin0@disney.org"}
+#data = {
+##  "Paolino Paperino": {
+ #     "giorno": 9,
+ #     "mese": "giugno",
+  #    "anno": 1934,
+   #   "età": 89,
+    #  "sesso": "M",
+    #  "mail": "paolino.paperin0@disney.org"}
   }
 
-with open("data_file.json", "w") as write_file:
+#with open("data_file.json", "w") as write_file:
     # scrive il contenuto serializzato del dizionario nel file object
     json.dump(data, write_file)
 
 
-with open('data_file.json', 'r') as in_file:
+#with open('data_file.json', 'r') as in_file:
     # legge il contenuto del file in un dizionario
     data2 = json.load(in_file)
 
-print(data2)
+#print(data2)

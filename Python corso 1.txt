@@ -32,3 +32,6 @@ se voglio verificare che una variabile e' uguale a None scrivo is non uguale
 con + tra le stringhe si attaccano le stringhe e con * si ripetono
 per cambiare il type di una variabile si usa float() per cambiarlo a num reale, str per trasformarlo in stringa e int per trasformarlo in intero
 scrivere exit per spegnere
+
+
+
