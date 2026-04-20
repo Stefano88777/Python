@@ -74,6 +74,7 @@ def main():
     # conto le soluzioni trovate, inizio da 0           
     solutions = 0                 
     tentativi = 0
+    ripetizioni = 1
     lista_di_soluzioni = []
     # misuro il tempo di partenza per la ricerca della soluzione
     start_time = time.time()            
@@ -88,7 +89,7 @@ def main():
         #if soluzione_ok(scacchiera) == True: 
         if soluzione_ok(scacchiera) : 
             # se la soluzione è buona, scrive
-            if tuple(scacchiera) not in lista_di_soluzioni:
+            if tuple(scacchiera) not in lista_di_soluzioni:                          #Punto 3
                 tempo_usato = time.time() - start_time
                 print(f'Found solution {scacchiera} in {tempo_usato} s.')
                 print(f'Tentativi = {tentativi}')
@@ -97,10 +98,14 @@ def main():
                 tentativi = 0
                 scacchiera_tupla = tuple(scacchiera)
                 lista_di_soluzioni.append(scacchiera_tupla)
+                dizionario_soluzioni = {scacchiera_tupla: ripetizioni}
                 # reset timer ricerca soluzione
                 start_time = time.time()
+            else:
+                dizionario_soluzioni[scacchiera_tupla] = dizionario_soluzioni[scacchiera_tupla] + 1
         else:
             tentativi = tentativi + 1
+    print('Ripetizioni soluzioni: ', dizionario_soluzioni)
 
     tempo_medio = (time.time() - start_time2) / 10
     return tempo_medio
