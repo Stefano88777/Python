@@ -1,1 +1,0 @@
-"editor.inlineSuggest.enabled": false
