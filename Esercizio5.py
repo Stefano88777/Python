@@ -64,23 +64,31 @@ def soluzione_ok(soluzione_posizioni):
 import random
 import time 
 
-def main():
+def main(n=8, max_soluzioni=10):
     # inizializzo generatore permutazioni
     random_generator = random.Random() 
-    
     # preparo la "possibile soluzione" con posizoni da testare
-    scacchiera = list(range(8)) 
-    
+    scacchiera = list(range(n)) 
+    #generalizziamo a NxN e verifichiamo i problemi di soluzioni massime per evitare loop infiniti
+    if n == 1: 
+        max_soluzioni = 1
+    elif n in {2,3}:
+        return print(f'Non ci sono soluzioni')
+    elif n == 6:
+        max_soluzioni = 4
+    elif n == 4:
+        max_soluzioni = 2
     # conto le soluzioni trovate, inizio da 0           
     solutions = 0                 
     tentativi = 0
     ripetizioni = 1
     lista_di_soluzioni = []
+    dizionario_soluzioni = {}
     # misuro il tempo di partenza per la ricerca della soluzione
     start_time = time.time()            
     start_time2 = time.time()
     # loop finchè non trovo una soluzione
-    while solutions < 10:
+    while solutions < max_soluzioni:
     
         # permutazione casuale della soluzione 'mescolando' posizioni
         random_generator.shuffle(scacchiera) 
@@ -88,26 +96,27 @@ def main():
         # verifica se la permutazione casuale e' soluzione  
         #if soluzione_ok(scacchiera) == True: 
         if soluzione_ok(scacchiera) : 
-            # se la soluzione è buona, scrive
-            if tuple(scacchiera) not in lista_di_soluzioni:                          #Punto 3
+            scacchiera_tupla = tuple(scacchiera)
+            if scacchiera_tupla not in dizionario_soluzioni:
+                #Punto 4, controllo le ripetizioni
+                dizionario_soluzioni[scacchiera_tupla] = 1
+            else:
+                dizionario_soluzioni[scacchiera_tupla] = dizionario_soluzioni[scacchiera_tupla] + 1
+            if scacchiera_tupla not in lista_di_soluzioni:                          #Punto 3
                 tempo_usato = time.time() - start_time
                 print(f'Found solution {scacchiera} in {tempo_usato} s.')
                 print(f'Tentativi = {tentativi}')
                 # incremento contatore soluzioni trovate (condizione stop loop)
                 solutions += 1      
                 tentativi = 0
-                scacchiera_tupla = tuple(scacchiera)
                 lista_di_soluzioni.append(scacchiera_tupla)
-                dizionario_soluzioni = {scacchiera_tupla: ripetizioni}
                 # reset timer ricerca soluzione
                 start_time = time.time()
-            else:
-                dizionario_soluzioni[scacchiera_tupla] = dizionario_soluzioni[scacchiera_tupla] + 1
         else:
             tentativi = tentativi + 1
     print('Ripetizioni soluzioni: ', dizionario_soluzioni)
 
-    tempo_medio = (time.time() - start_time2) / 10
+    tempo_medio = (time.time() - start_time2) / max_soluzioni
     return tempo_medio
     
 
@@ -116,7 +125,14 @@ def main():
 tempo_medio = main()
 print(f'Il tempo medio è {tempo_medio}')
 
+#Punto6
+tempo_tentativo = 0
+n = 8
+while tempo_tentativo < 15:
+    n = n + 1
+    tempo_tentativo = main(n, 1)
 
+print(f'Il numero massimo di colonne per il quale si trova una soluzione in meno di 15 secondi è {n - 1}, con un tempo di {tempo_tentativo} s')
 
 
 
