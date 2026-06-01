@@ -59,7 +59,20 @@ def soluzione_ok(soluzione_posizioni):
     # allora nessun incrocio trvato: posizioni della soluzione valide 
     return True 
 
-
+#Punto7
+def soluzioni_uniche(scacchiera, n):
+    lista_coordinate = []
+    novanta_gradi = []
+    centoottanta_gradi = []
+    duecentosettanta_gradi = []
+    x = 0
+    for c in scacchiera:
+        lista_coordinate.append([c,x])
+        x = x + 1
+        novanta_gradi.append([x, n-c])
+        centoottanta_gradi.append([n-c, n-x])
+        duecentosettanta_gradi.append([n-x, c])
+    return lista_coordinate, novanta_gradi, centoottanta_gradi, duecentosettanta_gradi
 
 import random
 import time 
@@ -84,6 +97,7 @@ def main(n=8, max_soluzioni=10):
     ripetizioni = 1
     lista_di_soluzioni = []
     dizionario_soluzioni = {}
+    lista_rotazioni = []
     # misuro il tempo di partenza per la ricerca della soluzione
     start_time = time.time()            
     start_time2 = time.time()
@@ -97,12 +111,18 @@ def main(n=8, max_soluzioni=10):
         #if soluzione_ok(scacchiera) == True: 
         if soluzione_ok(scacchiera) : 
             scacchiera_tupla = tuple(scacchiera)
+            rotazioni = soluzioni_uniche(scacchiera)
+            if 
+            lista_rotazioni.append(rotazioni[0])
+            lista_rotazioni.append(rotazioni[1])
+            lista_rotazioni.append(rotazioni[2])
+            lista_rotazioni.append(rotazioni[3])
             if scacchiera_tupla not in dizionario_soluzioni:
                 #Punto 4, controllo le ripetizioni
                 dizionario_soluzioni[scacchiera_tupla] = 1
             else:
                 dizionario_soluzioni[scacchiera_tupla] = dizionario_soluzioni[scacchiera_tupla] + 1
-            if scacchiera_tupla not in lista_di_soluzioni:                          #Punto 3
+            if scacchiera_tupla not in lista_di_soluzioni:                          #Punto 3, controllo l'unicita' delle soluzioni
                 tempo_usato = time.time() - start_time
                 print(f'Found solution {scacchiera} in {tempo_usato} s.')
                 print(f'Tentativi = {tentativi}')
@@ -114,25 +134,30 @@ def main(n=8, max_soluzioni=10):
                 start_time = time.time()
         else:
             tentativi = tentativi + 1
-    print('Ripetizioni soluzioni: ', dizionario_soluzioni)
+    
 
     tempo_medio = (time.time() - start_time2) / max_soluzioni
-    return tempo_medio
+    return tempo_medio, dizionario_soluzioni
     
 
 # chiamo la funzione principale 
-#main()
-tempo_medio = main()
+n = int(input("Inserisci la dimensione della scacchiera: "))
+max_soluzioni = int(input("Inserisci il numero massimo di soluzioni da cercare: "))
+tempo_medio, dizionario_soluzioni = main(n, max_soluzioni)
 print(f'Il tempo medio è {tempo_medio}')
-
+print('Ripetizioni soluzioni: ', dizionario_soluzioni)
 #Punto6
 tempo_tentativo = 0
 n = 8
-while tempo_tentativo < 15:
-    n = n + 1
-    tempo_tentativo = main(n, 1)
+continua = True
+while continua:
+    if tempo_tentativo < 15:
+        n = n + 1
+        tempo_tentativo,_ = main(n, 1)
+    else:
+        continua = False
+print(f'Il numero massimo di colonne per il quale si trova una soluzione in meno di 15 secondi è {n-1}')
 
-print(f'Il numero massimo di colonne per il quale si trova una soluzione in meno di 15 secondi è {n - 1}, con un tempo di {tempo_tentativo} s')
 
 
 
