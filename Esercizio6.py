@@ -1,12 +1,11 @@
 import rubrica
 
-# 1. Creiamo l'oggetto rubrica
+#creo l'oggetto rubrica rb
 rb = rubrica.Rubrica()
 
 while True:
-    
-    #Chiedo all'utente quale azione eseguire
-    azione = input("\nScegli un'azione (APRI, AGGIUNGI, RIMUOVI, SALVA, STAMPA, EXIT): ").strip().upper()
+
+    azione = input("\nScegli un'azione (APRI, AGGIUNGI, RIMUOVI, SALVA, STAMPA, EXIT): ")
 
     if azione == "EXIT":
         print("Uscita dal programma. Arrivederci!")
@@ -17,7 +16,6 @@ while True:
 
     elif azione == "AGGIUNGI":
         nome = input("Inserisci il nome del contatto: ")
-        
         giorno = input("Giorno di nascita: ")
         mese = input("Mese di nascita: ")
         anno = input("Anno di nascita: ")
@@ -45,7 +43,7 @@ while True:
         rb.STAMPA(nome)
 
     elif azione == "SALVA":
-        nome_file = input("Inserisci il nome del file su cui salvare (es. rubrica.json o rubrica.txt): ")
+        nome_file = input("Inserisci il nome del file su cui salvare: ")
         rb.SALVA(nome_file)
 
     else:
