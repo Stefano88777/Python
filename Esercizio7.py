@@ -55,6 +55,6 @@ while continua:
             else:
                 print('riprova')
         else:
-            print('Hai inserito lettere, decimali o caratteri speciali, riprova...'/n)
+            print('Hai inserito lettere, decimali o caratteri speciali, riprova...')
 
 print('Esco dal gioco')
