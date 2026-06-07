@@ -16,6 +16,7 @@ rubrica = {
 }
 
 #Punto 1, stampa la rubrica
+#SCRIVERE: -esercizio X
 def punto1():
     print(f'Paolino Paperino è nato il {rubrica["Paolino Paperino"]["giorno"]} {rubrica["Paolino Paperino"]["mese"]} {rubrica["Paolino Paperino"]["anno"]}, ha {rubrica["Paolino Paperino"]["età"]} anni, è di sesso {rubrica["Paolino Paperino"]["sesso"]} e il suo indirizzo mail è {rubrica["Paolino Paperino"]["mail"]}')
     print(f'Ron Weasley è nato il {rubrica["Ron Weasley"]["giorno"]} {rubrica["Ron Weasley"]["mese"]} {rubrica["Ron Weasley"]["anno"]}, ha {rubrica["Ron Weasley"]["età"]} anni, è di sesso {rubrica["Ron Weasley"]["sesso"]} e il suo indirizzo mail è {rubrica["Ron Weasley"]["mail"]}')
@@ -23,6 +24,7 @@ def punto1():
     print(f'Madoka Ayukawa è nata il {rubrica["Madoka Ayukawa"]["giorno"]} {rubrica["Madoka Ayukawa"]["mese"]} {rubrica["Madoka Ayukawa"]["anno"]}, ha {rubrica["Madoka Ayukawa"]["età"]} anni, è di sesso {rubrica["Madoka Ayukawa"]["sesso"]} e il suo indirizzo mail è {rubrica["Madoka Ayukawa"]["mail"]}')
 
 #Punto 2, ordina l'eta delle persone
+#SCRIVERE: -esercizio X
 Lista_eta = []
 def punto2():
     for persona in rubrica:
@@ -32,14 +34,18 @@ def punto2():
         for chiave in rubrica:
             if rubrica[chiave]['età'] == Lista_eta[persona]:
                 Lista_eta[persona] = chiave
-    print(Lista_eta)
+    print("Lista delle eta in ordine crescente: ", Lista_eta)
+    return Lista_eta
 
 #Punto 3, come nel 2 ma al contrario
-def punto3():    
+#SCRIVERE: -esercizio X
+def punto3():
+    Lista_eta=punto2()    
     Lista_eta_contrario = Lista_eta[::-1]
-    print(Lista_eta_contrario)
+    print("Lista delle eta in ordine decrescente: ", Lista_eta_contrario)
 
 #Punto 4, stampa tutti i dati delle persone
+#SCRIVERE: -esercizio X 
 def punto4():
     for persona in rubrica:
         if rubrica[persona]['sesso'] == 'F':
@@ -49,7 +55,8 @@ def punto4():
             lettera = "o"
             print(f'Car{lettera} {persona}, \nsei nat{lettera} il {rubrica[persona]["giorno"]} di {rubrica[persona]["mese"]} del {rubrica[persona]["anno"]} e quindi a breve compirai {rubrica[persona]["età"]} anni.\nTi manderemo gli auguri a {rubrica[persona]["mail"]}')
 
-#Punto 5, 
+#Punto 5, stampa le info richieste per ogni persona
+#SCRIVERE: -esercizio X eta mail sesso ...
 import sys
 args1 = sys.argv
 def punto5():
@@ -59,7 +66,8 @@ def punto5():
             if chiave in ['giorno', 'mese', 'anno', 'età', 'sesso', 'mail']:
                 print(f'{chiave}: {rubrica[persona][chiave]}')
 
-#Punto 6
+#Punto 6, 
+#SCRIVERE: -esercizio X -nome "Y" VIRGOLETTE
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("-nome", nargs="*") 
@@ -78,14 +86,15 @@ if args.nome:
 
 
 #Punto 7
-for esercizio in args.esercizio:
-    if esercizio == "1":
-        punto1()
-    elif esercizio == "2":
-        punto2()
-    elif esercizio == "3":
-        punto3()
-    elif esercizio == "4":
-        punto4()
-    elif esercizio == "5":
-        punto5()
+if args.esercizio:
+    for esercizio in args.esercizio:
+        if esercizio == "1":
+            punto1()
+        elif esercizio == "2":
+            punto2()
+        elif esercizio == "3":
+            punto3()
+        elif esercizio == "4":
+            punto4()
+        elif esercizio == "5":
+            punto5()
