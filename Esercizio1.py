@@ -1,11 +1,13 @@
 
 def is_pari(n):
+    #controlla se il numero e' pari
     risultato = True
     if n%2 == 1:
        risultato = False
     return risultato
 
 def genera_numeri():       
+    #verifica se il numero e' positivo
     numero=int(input('\nDammi un numero intero positivo:  '))
     if numero > 0:
         return is_pari(numero), numero
@@ -13,6 +15,7 @@ def genera_numeri():
         return genera_numeri()
 
 def crea_lista(n, lista):
+    "crea la lista desiderata"
     lista.append(n)
     if n==1 or len(lista)==100:
         return lista
@@ -25,12 +28,14 @@ def crea_lista(n, lista):
             return crea_lista(n, lista)
 
 def analizza_sequenza(n):
+    "trova massimo, somma e lunghezza della lista"
     massimo=max(n)
     somma=sum(n)
     lunghezza=len(n)
     return massimo, somma, lunghezza
 
 def ricerca_lista(n):
+    "trova i multipli di 5 nella lista"
     multipli=[]
     for x in n:
         if x%5 == 0:
@@ -42,6 +47,7 @@ def ricerca_lista(n):
         return numeri
 
 def main():
+    "chiama tutte le funzioni"
     result, numero = genera_numeri()
     print(result)
     lista_finale = crea_lista(numero, [])
@@ -54,6 +60,7 @@ def main():
     print (ricerca)
     return numero, lunghezza
 x=int(input('Quanti numeri volete analizzare: '))
+#verifichiamo che numero ha una lista maggiore
 for i in range(x):
     numero, lunghezza = main()
     lunghezza_base = 0

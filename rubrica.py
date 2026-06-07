@@ -10,7 +10,7 @@ class Rubrica:
         }
         self.aperta = True
 
-
+    #se il file con cui lavoriamo e' json usaimo questo classmethod
     @classmethod
     def da_json(cls, nome_del_file):
         oggetto_rubrica = Rubrica()
@@ -18,7 +18,7 @@ class Rubrica:
             oggetto_rubrica.data = json.load(file_in)
         oggetto_rubrica.aperta = True
         return oggetto_rubrica
-
+    #se e' txt questo
     @classmethod
     def da_testo(cls, nome_del_file):
         oggetto_rubrica = Rubrica()
@@ -33,14 +33,16 @@ class Rubrica:
         oggetto_rubrica.aperta = True
         return oggetto_rubrica
 
-
+    #funzione che apre un file
     def APRI(self, nome_del_file=None):
         if nome_del_file is None:
             nome_del_file = input("Inserisci il nome del file da aprire: ")
         
         with open(nome_del_file, 'r') as file_in:
+            #o json
             if nome_del_file.endswith('.json'):
                 self.data = json.load(file_in)
+            #o di testo
             else:
                 self.data = {}
                 for linea in file_in:
@@ -50,6 +52,7 @@ class Rubrica:
         self.aperta = True
         print(f"File {nome_del_file} aperto.")
 
+    #funzione che aggiunge un elemento al dizionario
     def AGGIUNGI(self, nome, info_dizionario):
         if self.aperta == False:
             print("Prima apri una rubrica")
@@ -57,6 +60,7 @@ class Rubrica:
         self.data[nome] = info_dizionario
         print(f"Contatto {nome} aggiunto.")
 
+    #funzione che rimuove un elemento dal dizionario
     def RIMUOVI(self, nome):
         if len(self.data) == 0:
             print("La rubrica è vuota")
@@ -67,6 +71,7 @@ class Rubrica:
         del self.data[nome]
         print(f"Contatto {nome} rimosso.")
 
+    #funzione che visualizza un elemento
     def STAMPA(self, nome):
         if len(self.data) == 0:
             print("La rubrica è vuota")
@@ -81,6 +86,7 @@ class Rubrica:
         print(f"sei nat[o/a] il {dati['giorno']} di {dati['mese']} del {dati['anno']} e quindi a breve compirai {dati['età']} anni.")
         print(f"Ti manderemo gli auguri a {dati['mail']}\n")
 
+    #funzione che salva il file
     def SALVA(self, nome_del_file):
         if len(self.data) == 0:
             print("La rubrica è vuota")

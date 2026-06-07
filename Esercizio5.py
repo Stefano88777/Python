@@ -61,12 +61,14 @@ def soluzione_ok(soluzione_posizioni):
 
 #Punto7
 def soluzioni_uniche(scacchiera, n):
+    #creo le altre quattro soluzioni e poi le andro a inserire in un dizionario per verificare se sono gia apparse
     lista_coordinate = []
     novanta_gradi = []
     centoottanta_gradi = []
     duecentosettanta_gradi = []
     x = 0
     for c in scacchiera:
+        #scrivendo alcuni casi su carta ho notato che ruotando la scacchiera di novanta gradi, la colonna diventa la nuova riga e la nuova colonna e' n-c(-1 perche si conta da 0)
         lista_coordinate.append([c,x])
         novanta_gradi.append([x, n-1-c])
         centoottanta_gradi.append([n-1-c, n-1-x])
