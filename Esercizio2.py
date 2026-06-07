@@ -21,7 +21,7 @@ The water, like a witch's oils,
 Burnt green, and blue and white.
 '''
 
-#Punto 1
+#Punto 1, CONTA LE RIGHE
 lista_righe = testo.split('\n')
 conta_righe = 0
 for riga in lista_righe:
@@ -30,7 +30,7 @@ for riga in lista_righe:
 #print('Il numero di righe è: ', conta_righe)
 #print(lista_righe)
 
-#Punto 2
+#Punto 2, CONTA LE PAROLE
 conta_parole = 0
 lista_parole = testo.split()
 for parola in lista_parole:
@@ -38,7 +38,7 @@ for parola in lista_parole:
 #print('Il numero di parole è: ', conta_parole)
 #print(lista_parole)
 
-#Punto 3
+#Punto 3, CONTA I CARATTERI
 conta_caratteri_an = 0
 lista_del_testo = list (testo)
 for i in lista_del_testo:
@@ -46,7 +46,7 @@ for i in lista_del_testo:
         conta_caratteri_an = conta_caratteri_an + 1
 #print('Il numero di caratteri alfanumerici è: ', conta_caratteri_an)
 
-#Punto 4
+#Punto 4, CONTA QUANTE VOLTE COMPARE UNA LETTERA 
 #lettera=input('Dammi una lettera qualsiasi: ')
 #conta_lettera=0
 #for i in lista_del_testo:
@@ -54,7 +54,7 @@ for i in lista_del_testo:
 #        conta_lettera = conta_lettera + 1
 #print('La lettera ', lettera, ' compare ', conta_lettera, ' volte in questo testo')
 
-#Punto 5
+#Punto 5, SOSTITUISCE PYTHON A WATER, DAY E ABOUT
 #print('Sostituendo la parola Python, il testo diventa: ')
 for x in lista_righe:
     lista_testo_es5 = x.split(' ')
@@ -69,7 +69,7 @@ for x in lista_righe:
             lista_testo_es5[indice] = 'PYTHON' + punteggiatura
 #    print(" ".join(lista_testo_es5))
 
-#Punto 6
+#Punto 6, METTE IN MAIUSCOLO OGNI PAROLA DISPARI
 #print('Mettendo in maiuscolo ogni parola dispari, il testo diventa: ')
 for x in lista_righe:
     lista_testo_es6 = x.split(' ')
@@ -79,8 +79,8 @@ for x in lista_righe:
             lista_testo_es6[indice] = i.upper()
 #    print(" ".join(lista_testo_es6))
 
-#Punto 7
-#print("\nInvertendo l'ordine deli versi la poesia diventa: ")
+#Punto 7, INVERTE LA POESIA AL CONTRARIO
+#print("\nInvertendo l'ordine dei versi la poesia diventa: ")
 lista_al_contrario = []
 i = 0
 for x in lista_righe:
@@ -88,7 +88,7 @@ for x in lista_righe:
     i = i + 1 
 #print("\n".join(lista_al_contrario))
 
-#Punto 8
+#Punto 8, SPECCHIA OGNI SECONDO VERSO DI OGNI STROFA
 #print("\nGirando ogni secondo verso il testo diventa: ")
 testo_diviso = testo.split('\n')
 x = 0
@@ -109,7 +109,7 @@ while x < len(testo_diviso):
         x = x + 1
 #print("\n".join(testo_completo_girato))
 
-#Punto 9
+#Punto 9, TROVA LE PAROLE CHE COMPAIONO IN OGNI STROFA
 prima_strofa = []
 seconda_strofa = []
 terza_strofa = []
@@ -157,7 +157,7 @@ for parola in prima_strofa:
 #print(quarta_strofa)
 #print(parole_in_tutte_le_strofe)
 
-#Punto 10
+#Punto 10, ORDINA LE PAROLE DELLA POESIA PER LUNGHEZZA 
 lista_ordinata = []
 for parola in prima_strofa:
     if parola not in lista_ordinata:
@@ -174,7 +174,7 @@ for parola in quarta_strofa:
 lista_ordinata.sort(key=len)
 #print(lista_ordinata)
 
-#Punto 11
+#Punto 11, DIZIONARIO CARATTERE-OCCORRENZA
 lista_caratteri = list (testo)
 while "\n" in lista_caratteri:
     lista_caratteri.remove("\n")
@@ -189,7 +189,7 @@ for i in lista_caratteri:
 
 #print(dizionario_1)
 
-#Punto 12
+#Punto 12, DIZIONARIO CARATTERE ALFANUMERICO-OCCORRENZA 
 simboli = ".,?!:;'-"
 lista_caratteri_alnum = list (testo)
 while "\n" in lista_caratteri_alnum:
