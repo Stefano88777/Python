@@ -1,0 +1,20 @@
+{
+    "lanci_totali": 10000000,
+    "tempo_calcolo_secondi": 4.14084,
+    "media_punti_dado": 3.5005,
+    "totale_lanci_alti_5_6": 3335210,
+    "volte_faccia_1": 1667138,
+    "volte_faccia_2": 1665099,
+    "volte_faccia_3": 1666617,
+    "volte_faccia_4": 1665936,
+    "volte_faccia_5": 1667124,
+    "volte_faccia_6": 1668086,
+    "percentuale_faccia_1": 16.67,
+    "percentuale_faccia_2": 16.65,
+    "percentuale_faccia_3": 16.67,
+    "percentuale_faccia_4": 16.66,
+    "percentuale_faccia_5": 16.67,
+    "percentuale_faccia_6": 16.68,
+    "record_massimo_lanci": 1668086,
+    "record_minimo_lanci": 1665099
+}

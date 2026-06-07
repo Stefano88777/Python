@@ -28,13 +28,13 @@ class Rubrica:
                 if ":" in linea:
                     parti = linea.strip().split(":")
                     nome = parti[0]
-                    # Salviamo i dati direttamente per semplicità
+                    #salvo i dati
                     oggetto_rubrica.data[nome] = parti[1]
         oggetto_rubrica.aperta = True
         return oggetto_rubrica
 
     #funzione che apre un file
-    def APRI(self, nome_del_file=None):
+    def apri(self, nome_del_file=None):
         if nome_del_file is None:
             nome_del_file = input("Inserisci il nome del file da aprire: ")
         
@@ -53,7 +53,7 @@ class Rubrica:
         print(f"File {nome_del_file} aperto.")
 
     #funzione che aggiunge un elemento al dizionario
-    def AGGIUNGI(self, nome, info_dizionario):
+    def aggiungi(self, nome, info_dizionario):
         if self.aperta == False:
             print("Prima apri una rubrica")
             return
@@ -61,7 +61,7 @@ class Rubrica:
         print(f"Contatto {nome} aggiunto.")
 
     #funzione che rimuove un elemento dal dizionario
-    def RIMUOVI(self, nome):
+    def rimuovi(self, nome):
         if len(self.data) == 0:
             print("La rubrica è vuota")
             return
@@ -72,7 +72,7 @@ class Rubrica:
         print(f"Contatto {nome} rimosso.")
 
     #funzione che visualizza un elemento
-    def STAMPA(self, nome):
+    def stampa(self, nome):
         if len(self.data) == 0:
             print("La rubrica è vuota")
             return
@@ -87,7 +87,7 @@ class Rubrica:
         print(f"Ti manderemo gli auguri a {dati['mail']}\n")
 
     #funzione che salva il file
-    def SALVA(self, nome_del_file):
+    def salva(self, nome_del_file):
         if len(self.data) == 0:
             print("La rubrica è vuota")
             return
